@@ -3,7 +3,6 @@
 This is **Sensecraft AI frontend project** . It works in conjunction with **Sensecraft AI**. It is also open-source and can be found at [Sensecraft AI Repository ↗](). It provides the necessary API endpoints and handles the business logic for the frontend application.
 
 
-
 ## Getting Started
 ### Environment & Dependencies
 
@@ -98,7 +97,6 @@ Here are some screenshots showcasing the project's user interface:
   ![Alt text](screenshots/image-4.png)
 
 
-Please ensure that your code adheres to the project's coding conventions and includes appropriate documentation.
 
 ## License
 
