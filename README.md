@@ -77,8 +77,8 @@ Make sure to replace `your-api-url` with the appropriate values for your project
 
 ## Stream Config
 
-| Argument     | Notes                                                                                  |
-| ------------ | -------------------------------------------------------------------------------------- |
+| Argument         | Notes                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------- |
 | **Model**        | Model's Name, use which model for this stream.                                         |
 | **Video**        | Type Video Input Type [ VideoFile, IP-CAM, USB-CAM ].                                  |
 | **Video**        | Path Video Path, format decided by "Video Type", if wrong, default video will be used. |
@@ -96,11 +96,15 @@ Here are some screenshots showcasing the project's user interface:
 
 - **Main page**
 
-  ![Alt text](screenshots/image.png)
+  ![Alt text](screenshots/image-1.png)
+
+- **Full screen**
+
+  ![Alt text](screenshots/image-2.png)
 
 - **Streams list**
 
-  ![Alt text](screenshots/image-1.png)
+  ![Alt text](screenshots/stream-list.png)
 
 - **Stream Config**
 
@@ -108,11 +112,11 @@ Here are some screenshots showcasing the project's user interface:
 
 - **Settings**
 
-  ![Alt text](screenshots/image-5.png)
+  ![Alt text](screenshots/image-4.png)
 
 - **About**
 
-  ![Alt text](screenshots/image-4.png)
+![Alt text](image.png)
 
 ## License
 
