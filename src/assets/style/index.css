@@ -1,0 +1,37 @@
+@import './theme.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('@renderer/assets/fonts/Montserrat/static/Montserrat-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('@renderer/assets/fonts/Montserrat/static/Montserrat-Medium.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('@renderer/assets/fonts/Montserrat/static/Montserrat-Regular.ttf');
+}
+
+/* *:focus:focus-visible:not(:focus-within) {
+  outline: 2px solid var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+} */
+.focus-control:focus:focus-visible{
+  outline: 2px solid var(--primary-color);
+}
+/* *:focus{
+  outline: 2px solid var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+} */
+
+:root {
+  font-family: var(--primary-font), 'ui-monospace', SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  background-color: var(--body-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}

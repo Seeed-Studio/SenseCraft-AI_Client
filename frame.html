@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="" alt="" id="player" class="player-img hide" />
+    </div>
+  </body>
+  <script>
+    var ELoadStatus = {
+      LOADING: "loading",
+      FAILED: "failed",
+      LOADED: "loaded"
+    }
+
+    var messageType = {
+      STREAM_DATA: "STREAM_DATA",
+      IFRAME_ONLOAD: "IFRAME_ONLOAD",
+      PLAYER_STATUS: "PLAYER_STATUS"
+    }
+
+    function postMessage(data) {
+      if (!window.PLAYER_ID) return
+      data.playerId = window.PLAYER_ID
+      window.top.postMessage(data)
+    }
+
+    function initPlayer(el, src, timeout) {
+      var $img = document.getElementById(el)
+      if (!($img && src)) {
+        return
+      }
+      var isLoaded = false
+      var TT
+      if (timeout > 0) {
+        TT = setTimeout(function () {
+          if (!isLoaded) {
+            postMessage({
+              type: messageType.PLAYER_STATUS,
+              value: ELoadStatus.FAILED,
+              remark: "Request time out"
+            })
+            // disconnect stream
+            setTimeout(() => {
+              location.search = ""
+              clearTimeout(TT)
+            }, 500);
+          }
+        }, timeout)
+      }
+
+      var image = new Image()
+      image.onload = function () {
+        $img.src = src
+        isLoaded = true
+        $img.classList.remove("hide")
+        postMessage({
+          type: messageType.PLAYER_STATUS,
+          value: ELoadStatus.LOADED
+        })
+        TT && clearTimeout(TT)
+      }
+      image.onerror = function () {
+        isLoaded = false
+        postMessage({
+          type: messageType.PLAYER_STATUS,
+          value: ELoadStatus.FAILED,
+          remark: "Connection failed"
+        })
+        TT && clearTimeout(TT)
+      }
+      image.onabort = function () {
+        isLoaded = false
+        postMessage({
+          type: messageType.PLAYER_STATUS,
+          value: ELoadStatus.FAILED,
+          remark: "Connection abort"
+        })
+        TT && clearTimeout(TT)
+      }
+      image.src = src
+    }
+
+    function handleMessage(e) {
+      // same origin , playerId validate
+      if (
+        !(
+          e.origin === location.origin &&
+          e.data &&
+          window.PLAYER_ID &&
+          e.data.playerId === window.PLAYER_ID
+        )
+      )
+        return
+      switch (e.data.type) {
+        case messageType.STREAM_DATA:
+          initPlayer("player", e.data.playerUrl, e.data.timeout)
+          break
+        default:
+          return
+      }
+    }
+
+    window.onload = function () {
+      if (window.self === window.top) {
+        return
+      }
+      var params = new URLSearchParams(window.location.search)
+      if (!(params && params.get("playerId"))) return
+      window.PLAYER_ID = params.get("playerId")
+      // message event
+      window.top.addEventListener("message", handleMessage, false)
+      // page loaded
+      postMessage({
+        type: messageType.IFRAME_ONLOAD
+      })
+    }
+    // remove event listener
+    window.addEventListener("beforeunload", () => {
+      window.top.removeEventListener("message", handleMessage)
+    })
+  </script>
+
+  <style>
+    html,
+    body {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0 0;
+      position: relative;
+    }
+
+    .image-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .player-img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    .player-img.hide {
+      display: none;
+    }
+
+    .image-container.loading .player-img {
+      display: none;
+    }
+
+    .image-container.loading:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 35px;
+      height: 35px;
+      border: 3px solid transparent;
+      border-top: 3px solid #93c528;
+      border-bottom: 3px solid #93c528;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</html>
