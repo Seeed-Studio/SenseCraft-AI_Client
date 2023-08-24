@@ -1,6 +1,6 @@
-# Sensecraft AI frontend
+# Seeed Sensecraft AI web UI
 
-This is **Sensecraft AI frontend project** . It works in conjunction with **Sensecraft AI**. It is also open-source and can be found at [Seeed-SenseCraft-AI-Edge ↗](https://github.com/Seeed-Studio/Seeed-SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
+This is **Seeed Sensecraft AI web UI** . It works in conjunction with [**Seeed-SenseCraft-AI-Edge ↗**](https://github.com/Seeed-Studio/Seeed-SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
 
 ## Getting Started
 
