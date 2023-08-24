@@ -7,9 +7,10 @@ This is **Sensecraft AI frontend project** . It works in conjunction with **Sens
 ### Environment & Dependencies
 
 - **Nodejs 16+**
-- **Vite**
+- **Vite 3.x**
 - **Typescirpt**
 - **Vue3 + Pinia**
+- **CSS framework : [Tailwindcss](https://tailwindcss.com/)**
 - **UI Component Library**: [TDesign Web Vue UI](https://tdesign.tencent.com/vue/overview)
 
 ### Install Dependencies
