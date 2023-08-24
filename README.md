@@ -96,11 +96,11 @@ Here are some screenshots showcasing the project's user interface:
 
 - **Main page**
 
-  ![Alt text](screenshots/image-1.png)
+  ![Alt text](screenshots/index.png)
 
 - **Full screen**
 
-  ![Alt text](screenshots/image-2.png)
+  ![Alt text](screenshots/fullscreen.png)
 
 - **Streams list**
 
@@ -108,15 +108,15 @@ Here are some screenshots showcasing the project's user interface:
 
 - **Stream Config**
 
-  ![Alt text](screenshots/image-3.png)
+  ![Alt text](screenshots/config.png)
 
 - **Settings**
 
-  ![Alt text](screenshots/image-4.png)
+  ![Alt text](screenshots/settings.png)
 
 - **About**
 
-![Alt text](image.png)
+  ![Alt text](screenshots/about.png)
 
 ## License
 
