@@ -3,7 +3,7 @@
 This is **SenseCraft AI web UI** . It works in conjunction with [**SenseCraft-AI-Edge ↗**](https://github.com/Seeed-Studio/SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
 
 ## Getting Started
-
+ 
 ### Environment & Dependencies
 
 - **Nodejs 16+**
