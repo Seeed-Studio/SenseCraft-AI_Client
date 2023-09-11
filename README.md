@@ -75,21 +75,6 @@ VITE_API_PATH=your-api-url
 
 Make sure to replace `your-api-url` with the appropriate values for your project.
 
-## Stream Config
-
-| Argument         | Notes                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| **Model**        | Model's Name, use which model for this stream.                                         |
-| **Video**        | Type Video Input Type [ VideoFile, IP-CAM, USB-CAM ].                                  |
-| **Video**        | Path Video Path, format decided by "Video Type", if wrong, default video will be used. |
-| **FPS**          | Frame per second.                                                                      |
-| **Quality**      | output stream quality.                                                                 |
-| **Max**          | Det maximum number of detections per image.                                            |
-| **Conf**         | object confidence threshold for detection.                                             |
-| **Track**        | Track=True, use Tracking .                                                             |
-| **Experimental** | and lower performance                                                                  |
-| **Half**         | use half precision (FP16). improve performance and lower precision                     |
-
 ## Demo Screenshots
 
 Here are some screenshots showcasing the project's user interface:
@@ -109,6 +94,20 @@ Here are some screenshots showcasing the project's user interface:
 - **Stream Config**
 
   ![Alt text](screenshots/config.png)
+
+| Argument         | Notes                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| **Model**        | Model's Name, use which model for this stream.                                         |
+| **Video**        | Type Video Input Type [ VideoFile, IP-CAM, USB-CAM ].                                  |
+| **Video**        | Path Video Path, format decided by "Video Type", if wrong, default video will be used. |
+| **FPS**          | Frame per second.                                                                      |
+| **Quality**      | output stream quality.                                                                 |
+| **Max**          | Det maximum number of detections per image.                                            |
+| **Conf**         | object confidence threshold for detection.                                             |
+| **Track**        | Track=True, use Tracking .                                                             |
+| **Experimental** | and lower performance                                                                  |
+| **Half**         | use half precision (FP16). improve performance and lower precision                     |
+
 
 - **Settings**
 
