@@ -1,6 +1,6 @@
-# SenseCraft AI web UI
+# SenseCraft AI Client
 
-This is **SenseCraft AI web UI** . It works in conjunction with [**SenseCraft-AI-Edge ↗**](https://github.com/Seeed-Studio/SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
+This is **SenseCraft AI Client** . It works in conjunction with [**SenseCraft-AI_Server ↗**](https://github.com/Seeed-Studio/SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
 
 ## Getting Started
 
