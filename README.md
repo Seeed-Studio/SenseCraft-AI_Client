@@ -3,7 +3,7 @@
 This is **SenseCraft AI web UI** . It works in conjunction with [**SenseCraft-AI-Edge ↗**](https://github.com/Seeed-Studio/SenseCraft-AI-Edge.git). It provides the necessary API endpoints and handles the business logic for the frontend application.
 
 ## Getting Started
- 
+
 ### Environment & Dependencies
 
 - **Nodejs 16+**
@@ -15,19 +15,36 @@ This is **SenseCraft AI web UI** . It works in conjunction with [**SenseCraft-AI
 
 ### Install Dependencies
 
-`pnpm install`
+```
+pnpm install
+```
 
 ### Development Mode
 
-`pnpm run dev`
+```
+pnpm run dev
+```
 
 Open your browser and visit: [http://localhost:1430](http://localhost:1430)
 
-### Build for Production
+### Building the App
 
-`pnpm run build`
+```
+pnpm run build 
+```
 
-## Project Structure
+By default, the build output will be placed at **dist**. You may deploy this dist folder to any of your preferred platforms.
+
+### Preview App Locally
+Once you've built the app, you may preview it locally by running `npm run preview` command.
+
+```
+$ pnpm run build
+$ pnpm run preview
+```
+
+The `pnpm run preview` command will boot up a local static web server that serves the files from dist at http://localhost:4173. It's an easy way to check if the production build looks OK in your local environment.
+
 
 The project follows a standard structure to organize its files and folders:
 
@@ -65,15 +82,6 @@ The project follows a standard structure to organize its files and folders:
 
 The `public` directory contains the static assets and the main `index.html` file. The `src` directory is where the application's source code resides. It includes folders for assets, reusable components, views, store (Pinia store modules), and the main application entry point (`App.vue` and `main.js`).
 
-## Environment Configuration
-
-To configure your environment variables, create a `.env` file in the project root directory and define your variables there. Here's an example of the required variables:
-
-```
-VITE_API_PATH=your-api-url
-```
-
-Make sure to replace `your-api-url` with the appropriate values for your project.
 
 ## Demo Screenshots
 
