@@ -58,6 +58,7 @@
           <t-select
             borderless
             size="large"
+            :loading="modelStore.status === ELoadStatus.LOADING"
             v-model="formData.modelId"
             placeholder=""
             :popup-props="{
@@ -101,18 +102,23 @@
                 "
               />
               <button
-                @click="getCameraDevice"
+                @click="getAppConfig"
                 v-if="
                   modelStore.status !== ELoadStatus.LOADING &&
                   modelStore.models.length === 0
                 "
                 class="text-active"
               >
-                <RefreshIcon size="30" />
+                <RefreshIcon size="24" />
               </button>
             </template>
             <template #empty>
               <div class="text-center p-10">{{ t("empty") }}</div>
+            </template>
+            <template #loadingText>
+              <div class="text-center p-20">
+                <LoadingIcon size="20"></LoadingIcon>
+              </div>
             </template>
           </t-select>
         </t-form-item>
@@ -156,7 +162,6 @@
               v-if="formData.sourceType === EVideoTypes.USB_CAMERA"
               :loading="loadingCamera"
               v-model="formData.sourcePath"
-              :loadingText="t('loading')"
               placeholder=""
               size="large"
               :popup-props="{ placement: 'bottom-right' }"
@@ -183,8 +188,13 @@
                   v-if="!loadingCamera && cameraList.length === 0"
                   class="text-active"
                 >
-                  <RefreshIcon size="30" />
+                  <RefreshIcon size="24" />
                 </button>
+              </template>
+              <template #loadingText>
+                <div class="text-center p-20">
+                  <LoadingIcon size="20"></LoadingIcon>
+                </div>
               </template>
               <template #empty>
                 <div class="text-center p-10">{{ t("empty") }}</div>
@@ -448,6 +458,7 @@ import { getCameras, setStreamsConfig } from "@renderer/api"
 import { emptyStreamConf } from "@renderer/store/modules/streams"
 import { MessagePlugin } from "tdesign-vue-next"
 import { DeleteIcon } from "tdesign-icons-vue-next"
+import { getAppConfig } from "@renderer/api"
 import i18n from "@renderer/i18n"
 
 const { t, tm } = i18n.global
@@ -484,30 +495,6 @@ const rules = {
       message: t("validate.max", { size: 30 })
     }
   ]
-  /*  modelId: [
-    {
-      required: true,
-      trigger: "change",
-      whitespace: true,
-      message: t("validate.required")
-    }
-  ],
-  sourceType: [
-    {
-      required: true,
-      trigger: "change",
-      whitespace: true,
-      message: t("validate.required")
-    }
-  ],
-  sourcePath: [
-    {
-      required: true,
-      trigger: "change",
-      whitespace: true,
-      message: t("validate.required")
-    }
-  ] */
 }
 
 // local Camera Device
